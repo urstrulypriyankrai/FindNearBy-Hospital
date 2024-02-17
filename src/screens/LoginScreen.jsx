@@ -7,13 +7,13 @@ import {
   GoogleSignin,
   statusCodes,
 } from '@react-native-google-signin/google-signin';
+import {GOOGLE_WEB_CLIENT_ID} from '../../secret';
 /********************End Of Imports***************/
 
 const LoginScreen = ({navigation}) => {
   useEffect(() => {
     GoogleSignin.configure({
-      webClientId:
-        '1072388580641-i6fo2nchh3nujdmsqq61g1asafpbfdem.apps.googleusercontent.com',
+      webClientId: GOOGLE_WEB_CLIENT_ID,
     });
   }, []);
   const [userInfo, setUserInfo] = useState(null);
