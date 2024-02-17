@@ -2026,6 +2026,11 @@
   dependencies:
     "@babel/types" "^7.20.7"
 
+"@types/geojson@^7946.0.13":
+  version "7946.0.14"
+  resolved "https://registry.npmjs.org/@types/geojson/-/geojson-7946.0.14.tgz"
+  integrity sha512-WCfD5Ht3ZesJUsONdhvm84dmzWOiOzOAqOncN0++w0lBw1o8OuDNJF2McvvCef/yBqb/HYRahp1BYtODFQ8bRg==
+
 "@types/graceful-fs@^4.1.3":
   version "4.1.9"
   resolved "https://registry.npmjs.org/@types/graceful-fs/-/graceful-fs-4.1.9.tgz"
@@ -4087,7 +4092,7 @@ internal-slot@^1.0.5, internal-slot@^1.0.7:
     hasown "^2.0.0"
     side-channel "^1.0.4"
 
-invariant@^2.2.4:
+invariant@^2.2.2, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.npmjs.org/invariant/-/invariant-2.2.4.tgz"
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
@@ -6036,6 +6041,20 @@ react-native-geolocation-service@^5.3.1:
   resolved "https://registry.npmjs.org/react-native-geolocation-service/-/react-native-geolocation-service-5.3.1.tgz"
   integrity sha512-LTXPtPNmrdhx+yeWG47sAaCgQc3nG1z+HLLHlhK/5YfOgfLcAb9HAkhREPjQKPZOUx8pKZMIpdGFUGfJYtimXQ==
 
+react-native-maps@^1.10.2:
+  version "1.10.2"
+  resolved "https://registry.npmjs.org/react-native-maps/-/react-native-maps-1.10.2.tgz"
+  integrity sha512-kWKr14kQXIF3h8x5D072gE2MSXEz0DGt5EdKV11dcyUbXj3cId1hviOTc4aYkstjsqefKN27ZNeGALG7/f5u9g==
+  dependencies:
+    "@types/geojson" "^7946.0.13"
+
+react-native-onesignal@^5.0.6:
+  version "5.0.6"
+  resolved "https://registry.npmjs.org/react-native-onesignal/-/react-native-onesignal-5.0.6.tgz"
+  integrity sha512-P6HVBY3Hu2p2wzKYSCOwUH1ESxEDKpx7wFvTnWCAyMqOc9y1JstASVvoFqDwwuvLBNFmuFkSVXQ7VdsqzTRcQg==
+  dependencies:
+    invariant "^2.2.2"
+
 react-native-safe-area-context@^4.9.0, "react-native-safe-area-context@>= 3.0.0":
   version "4.9.0"
   resolved "https://registry.npmjs.org/react-native-safe-area-context/-/react-native-safe-area-context-4.9.0.tgz"
@@ -6049,7 +6068,7 @@ react-native-screens@^3.29.0, "react-native-screens@>= 3.0.0":
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
 
-react-native@*, react-native@0.73.4:
+react-native@*, "react-native@>= 0.64.3", react-native@0.73.4:
   version "0.73.4"
   resolved "https://registry.npmjs.org/react-native/-/react-native-0.73.4.tgz"
   integrity sha512-VtS+Yr6OOTIuJGDECIYWzNU8QpJjASQYvMtfa/Hvm/2/h5GdB6W9H9TOmh13x07Lj4AOhNMx3XSsz6TdrO4jIg==
@@ -6115,7 +6134,7 @@ react-test-renderer@18.2.0:
     react-shallow-renderer "^16.15.0"
     scheduler "^0.23.0"
 
-react@*, "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", react@^18.2.0, react@>=16.8, react@>=17.0.0, react@18.2.0:
+react@*, "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", react@^18.2.0, "react@>= 17.0.1", react@>=16.8, react@>=17.0.0, react@18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==

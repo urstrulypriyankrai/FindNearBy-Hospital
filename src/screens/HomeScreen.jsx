@@ -1,4 +1,4 @@
-import {Text, View, PermissionsAndroid, Alert} from 'react-native';
+import {Text, View, PermissionsAndroid, Alert, FlatList} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import Geolocation from 'react-native-geolocation-service';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -71,7 +71,7 @@ const HomeScreen = () => {
       currentPosition?.latitude,
       currentPosition?.longitude,
     );
-    const parsedData = data.map(parseHospitalData);
+    const parsedData = await data.map(parseHospitalData);
     setNearbyHospitals(parsedData);
     console.log(parsedData);
   };
@@ -87,19 +87,27 @@ const HomeScreen = () => {
     }
   };
   /* if permission is granted call and get the current location */
-  if (isPermissionGranted) {
-    // getCurrentLocation();
-  } else {
-    return <Spinner />;
+  if (!isPermissionGranted) {
+    return (
+      <View className="flex justify-center items-center h-full">
+        <Spinner />
+      </View>
+    );
   }
 
   return (
     <SafeAreaView>
       <View className="flex ">
-        <Text className="text-2xl text-gray-600">
-          HomeScreen {currentPosition.latitude}
+        <Text className="text-xl text-center text-gray-600">
+          NearBy Hospitlas
         </Text>
-        {}
+        {nearbyHospitals && (
+          <FlatList
+            data={nearbyHospitals}
+            renderItem={({item}) => <ListItem name={item.name} />}
+            keyExtractor={item => item._id}
+          />
+        )}
       </View>
     </SafeAreaView>
   );
@@ -110,9 +118,18 @@ export default HomeScreen;
 // helper functions
 const parseHospitalData = hospital => {
   return {
+    _id: hospital.place_id,
     name: hospital.name,
     address: hospital.vicinity,
-    distance: hospital.geometry.location_distance, // In meters
-    // Add other desired properties
+    latitude: hospital.geometry.location.lat,
+    longitude: hospital.geometry.location.lat,
   };
+};
+
+const ListItem = ({name}) => {
+  return (
+    <View className=" bg-gray-400 py-2 px-6 m-2 ">
+      <Text className="text-gray-600">{name}</Text>
+    </View>
+  );
 };
