@@ -67,3 +67,5 @@ yarn-error.log
 
 #manual entry
 google-services.json
+
+secret.js
