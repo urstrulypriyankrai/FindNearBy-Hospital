@@ -122,13 +122,13 @@ const HomeScreen = () => {
           <View className="flex w-full h-full">
             <View className="flex w-full h-full">
               <MapView
-                className="border-2 border-red-400"
-                style={{width: '100%', height: '60%'}}
+                className=""
+                style={{width: '100%', height: '100%'}}
                 initialRegion={{
                   latitude: currentPosition.latitude - 0.09,
                   longitude: currentPosition.longitude - 0.02,
-                  latitudeDelta: 0.19,
-                  longitudeDelta: 0.0421,
+                  latitudeDelta: 0.06,
+                  longitudeDelta: 0.06,
                 }}
                 showsUserLocation={true}
                 followsUserLocation={true}>
@@ -136,6 +136,7 @@ const HomeScreen = () => {
                   return (
                     <Marker
                       key={item._id}
+                      title={item.name}
                       coordinate={{
                         latitude: item.latitude,
                         longitude: item.longitude,
@@ -144,15 +145,6 @@ const HomeScreen = () => {
                   );
                 })}
               </MapView>
-            </View>
-            <View>
-              {nearbyHospitals && (
-                <FlatList
-                  data={nearbyHospitals}
-                  renderItem={({item}) => <ListItem name={item.name} />}
-                  keyExtractor={item => item._id}
-                />
-              )}
             </View>
           </View>
         )}
